@@ -59,14 +59,14 @@ export default function LoginForm() {
     }
 
     // Submit Handler
-    const formSubmit = (e) => {
+    const formSubmit = e => {
         e.preventDefault();
         console.log("Form Submitted!");
 
         // axios call to dummy API so I could see if my validation worked
         axios
              .post("https://reqres.in/api/users", formState)
-            .then((response) => {
+             .then((response) => {
                 setFormState(initialState);
                 console.log(response);
 
@@ -100,7 +100,7 @@ export default function LoginForm() {
                 />
                 {errorState.password.length > 0 ? (<p className="error">{errorState.password}</p>) : null}
             </label>
-            
+
             <button disabled={buttonDisabled}>Submit</button>
         </form>
     )
