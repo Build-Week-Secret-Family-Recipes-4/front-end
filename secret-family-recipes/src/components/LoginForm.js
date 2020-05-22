@@ -1,8 +1,39 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import axios from "axios";
+import styled from 'styled-components';
 
+const Form = styled.form`
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+`
+const Button = styled.button`
+        border-radius: 5px;
+        font-size: 1rem;
+        width: 100px;
+        margin-top: 20px;
+`
+const Error = styled.p`
+    color: red;
+    font-size: .8rem;
 
+`
+const Login = styled.div`
+    display:flex;
+    flex-direction: column;
+`
+
+const Fields = styled.div`
+    padding: 15px;
+    font-size: 1rem;
+`
+
+const TextInput = styled.input`
+    margin-left: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+`
 
 // validation schema
 const formSchema = yup.object().shape({
@@ -76,33 +107,38 @@ export default function LoginForm() {
 
 
     return (
-        <form onSubmit={formSubmit}>
+        <Form onSubmit={formSubmit}>
           <h3>Login</h3>
+          <Login>
+            <Fields>
             <label htmlFor="username">
-                Username:
-                <input 
+                Username:  
+                <TextInput 
                     type="text"
                     name="username"
                     id="username"
                     value={formState.username}
                     onChange={changeHandler}
                 />
-                {errorState.username.length > 0 ? (<p className="error">{errorState.username}</p>) : null}
+                {errorState.username.length > 0 ? (<Error className="error">{errorState.username}</Error>) : null}
             </label>
+            </Fields>
+            <Fields>
             <label htmlFor="password">
                 Password:
-                <input 
+                <TextInput 
                     type="password"
                     name="password"
                     id="password"
                     value={formState.password}
                     onChange={changeHandler}
                 />
-                {errorState.password.length > 0 ? (<p className="error">{errorState.password}</p>) : null}
+                {errorState.password.length > 0 ? (<Error className="error">{errorState.password}</Error>) : null}
             </label>
-
-            <button disabled={buttonDisabled}>Submit</button>
-        </form>
+            </Fields>
+          </Login>
+            <Button disabled={buttonDisabled}>Sign In</Button>
+        </Form>
     )
 
 }
