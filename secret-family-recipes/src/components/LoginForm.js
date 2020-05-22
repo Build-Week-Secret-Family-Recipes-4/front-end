@@ -28,7 +28,6 @@ const Fields = styled.div`
     padding: 15px;
     font-size: 1rem;
 `
-
 const TextInput = styled.input`
     margin-left: 5px;
     font-size: 1rem;

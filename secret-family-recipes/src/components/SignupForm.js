@@ -38,6 +38,9 @@ const TextInput = styled.input`
 
 // validation schema
 const formSchema = yup.object().shape({
+    firstname: yup.string().required("Please enter your first name"),
+    lastname: yup.string().required("Please enter your last name"),
+    email: yup.string().email("Please enter a valid email address").required("Please enter your email address"),
     username: yup.string().required("Please create a username"),
     password: yup.string().required("Please create a password")
 });
@@ -46,6 +49,9 @@ const formSchema = yup.object().shape({
 export default function SignupForm() {
 
     const initialState = {
+        firstname: "",
+        lastname: "",
+        email: "",
         username: "",
         password: ""
     };
@@ -111,6 +117,45 @@ export default function SignupForm() {
         <Form onSubmit={formSubmit}>
           <h3>Sign Up</h3>
           <Signup>
+          <Fields>
+            <label htmlFor="firstname">
+                First Name:
+                <TextInput 
+                    type="text"
+                    name="firstname"
+                    id="signup-firstname"
+                    value={formState.firstname}
+                    onChange={changeHandler}
+                />
+                {errorState.firstname.length > 0 ? (<Error className="error">{errorState.firstname}</Error>) : null}
+            </label>
+            </Fields>
+            <Fields>
+            <label htmlFor="lastname">
+                Last Name:
+                <TextInput 
+                    type="text"
+                    name="lastname"
+                    id="signup-lastname"
+                    value={formState.lastname}
+                    onChange={changeHandler}
+                />
+                {errorState.lastname.length > 0 ? (<Error className="error">{errorState.lastname}</Error>) : null}
+            </label>
+            </Fields>
+            <Fields>
+            <label htmlFor="email">
+                Email:
+                <TextInput 
+                    type="text"
+                    name="email"
+                    id="signup-email"
+                    value={formState.email}
+                    onChange={changeHandler}
+                />
+                {errorState.email.length > 0 ? (<Error className="error">{errorState.email}</Error>) : null}
+            </label>
+            </Fields>
             <Fields>
             <label htmlFor="username">
                 Username:
