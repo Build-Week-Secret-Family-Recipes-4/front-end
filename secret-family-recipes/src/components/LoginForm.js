@@ -15,7 +15,6 @@ const Button = styled.button`
     margin-top: 20px;
     padding:10px;
     box-shadow: 7px 7px 10px #888888;
-
 `
 const Error = styled.p`
     color: red;
@@ -37,6 +36,7 @@ const TextInput = styled.input`
     border-radius: 5px;
     padding: 10px;
     width: 300px;
+    border: 1px solid black;
 `
 
 const Header = styled.h3`
@@ -145,7 +145,7 @@ export default function LoginForm() {
             </label>
             </Fields>
           </Login>
-            <Button disabled={buttonDisabled}>Sign In</Button>
+            <Button disabled={buttonDisabled}>Log In</Button>
         </Form>
     )
 

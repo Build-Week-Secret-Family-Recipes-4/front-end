@@ -38,6 +38,7 @@ const TextInput = styled.input`
     border-radius: 5px;
     padding: 10px;
     width: 400px;
+    border: 1px solid black;
 `
 const TextArea = styled.textarea`
     margin-left: 5px;
@@ -55,6 +56,7 @@ const Dropdown = styled.select`
     margin: 10px;
     height: 45px;
     background-color: transparent;
+    border: 1px solid black;
 `
 const Header = styled.h3`
     font-size: 1.5rem;

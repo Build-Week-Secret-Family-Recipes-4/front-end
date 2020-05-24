@@ -38,6 +38,7 @@ const TextInput = styled.input`
     border-radius: 5px;
     padding: 10px;
     width: 300px;
+    border: 1px solid black;
 `
 
 const Header = styled.h3`
