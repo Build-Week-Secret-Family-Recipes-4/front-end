@@ -10,7 +10,7 @@ const Form = styled.form`
     margin-bottom: 100px;
 `
 const Button = styled.button`
-    border-radius: 2px;
+    border-radius: 5px;
     font-size: 1rem;
     width: 425px;
     margin-top: 20px;
@@ -35,17 +35,26 @@ const Fields = styled.div`
 const TextInput = styled.input`
     margin-left: 5px;
     font-size: 1rem;
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 10px;
     width: 400px;
 `
 const TextArea = styled.textarea`
     margin-left: 5px;
     font-size: 1rem;
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 10px;
     width: 400px;
     height: 150px;
+    resize: none;
+`
+
+const Dropdown = styled.select`
+    width: 425px;
+    font-size: 1rem;
+    margin: 10px;
+    height: 45px;
+    background-color: transparent;
 `
 const Header = styled.h3`
     font-size: 1.5rem;
@@ -57,7 +66,7 @@ const formSchema = yup.object().shape({
     source: yup.string().required("Please enter a source"),
     ingredients: yup.string().required("Please enter the ingredients") ,
     instructions: yup.string().required("Please enter the instructions"),
-    category: yup.string().required("Please enter a category")
+    category: yup.string().required("Please choose a category")
 })
 
 
@@ -184,19 +193,22 @@ export default function NewRecipe() {
                 {errorState.instructions.length > 0 ? (<Error className="error">{errorState.instructions}</Error>) : null}
             </label>
             </Fields>
-            <Fields>
             <label htmlFor="category">
-                <TextInput
-                    type="text"
+                <Dropdown
                     name="category"
                     id="recipe-category"
                     value={formState.category}
                     onChange={changeHandler}
-                    placeholder="Category"
-                />
+                >
+                    <option value="">Select a category...</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                    <option value="dessert">Dessert</option>
+                </Dropdown>
                 {errorState.category.length > 0 ? (<Error className="error">{errorState.category}</Error>) : null}
             </label>
-            </Fields>
             </Recipe>
             <Button disabled={buttonDisabled}>Create New Recipe</Button>
         </Form>

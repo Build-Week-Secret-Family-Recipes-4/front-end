@@ -9,7 +9,7 @@ const Form = styled.form`
     align-items: center;
 `
 const Button = styled.button`
-    border-radius: 2px;
+    border-radius: 5px;
     font-size: 1rem;
     width: 325px;
     margin-top: 20px;
@@ -35,7 +35,7 @@ const Fields = styled.div`
 const TextInput = styled.input`
     margin-left: 5px;
     font-size: 1rem;
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 10px;
     width: 300px;
 `
