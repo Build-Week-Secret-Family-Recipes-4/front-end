@@ -7,8 +7,8 @@ import NewRecipe from "./components/NewRecipeForm";
 function App() {
   return (
     <div className="App">
-      {/* <LoginForm />
-      <SignupForm /> */}
+      <LoginForm />
+      <SignupForm />
       <NewRecipe />
       
     </div>
