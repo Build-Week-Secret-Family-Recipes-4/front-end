@@ -12,7 +12,7 @@ const Form = styled.form`
 const Button = styled.button`
     border-radius: 2px;
     font-size: 1rem;
-    width: 275px;
+    width: 425px;
     margin-top: 20px;
     padding:10px;
     box-shadow: 7px 7px 10px #888888;
