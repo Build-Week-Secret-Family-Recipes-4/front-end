@@ -9,10 +9,13 @@ const Form = styled.form`
     align-items: center;
 `
 const Button = styled.button`
-        border-radius: 5px;
-        font-size: 1rem;
-        width: 100px;
-        margin-top: 20px;
+    border-radius: 2px;
+    font-size: 1rem;
+    width: 275px;
+    margin-top: 20px;
+    padding:10px;
+    box-shadow: 7px 7px 10px #888888;
+
 `
 const Error = styled.p`
     color: red;
@@ -31,7 +34,13 @@ const Fields = styled.div`
 const TextInput = styled.input`
     margin-left: 5px;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 2px;
+    padding: 10px;
+    width: 250px;
+`
+
+const Header = styled.h3`
+    font-size: 1.5rem;
 `
 
 // validation schema
@@ -107,30 +116,30 @@ export default function LoginForm() {
 
     return (
         <Form onSubmit={formSubmit}>
-          <h3>Login</h3>
+          <Header>Login</Header>
           <Login>
             <Fields>
-            <label htmlFor="username">
-                Username:  
+            <label htmlFor="username">  
                 <TextInput 
                     type="text"
                     name="username"
                     id="username"
                     value={formState.username}
                     onChange={changeHandler}
+                    placeholder="Username"
                 />
                 {errorState.username.length > 0 ? (<Error className="error">{errorState.username}</Error>) : null}
             </label>
             </Fields>
             <Fields>
             <label htmlFor="password">
-                Password:
                 <TextInput 
                     type="password"
                     name="password"
                     id="password"
                     value={formState.password}
                     onChange={changeHandler}
+                    placeholder="Password"
                 />
                 {errorState.password.length > 0 ? (<Error className="error">{errorState.password}</Error>) : null}
             </label>

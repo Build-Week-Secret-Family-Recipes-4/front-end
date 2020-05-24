@@ -7,12 +7,15 @@ const Form = styled.form`
     display:flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 100px;
 `
 const Button = styled.button`
-        border-radius: 5px;
-        font-size: 1rem;
-        width: 175px;
-        margin-top: 20px;
+    border-radius: 2px;
+    font-size: 1rem;
+    width: 275px;
+    margin-top: 20px;
+    padding:10px;
+    box-shadow: 7px 7px 10px #888888;
 `
 const Error = styled.p`
     color: red;
@@ -32,14 +35,21 @@ const Fields = styled.div`
 const TextInput = styled.input`
     margin-left: 5px;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 2px;
+    padding: 10px;
+    width: 400px;
 `
 const TextArea = styled.textarea`
     margin-left: 5px;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 2px;
+    padding: 10px;
+    width: 400px;
+    height: 150px;
 `
-
+const Header = styled.h3`
+    font-size: 1.5rem;
+`
 
 const formSchema = yup.object().shape({
     title: yup.string().required("Please enter a title"),
@@ -109,80 +119,80 @@ export default function NewRecipe() {
 
     return ( 
         <Form onSubmit={formSubmit}>
-            <h3>New Recipe</h3>
+            <Header>New Recipe</Header>
             <Recipe>
             <Fields>
             <label htmlFor="title">
-                Title:
                 <TextInput 
                     type="text"
                     name="title"
                     id="recipe-title"
                     value={formState.title}
                     onChange={changeHandler}
+                    placeholder="Title"
                 />
                 {errorState.title.length > 0 ? (<Error className="error">{errorState.title}</Error>) : null}
             </label>
             </Fields>
             <Fields>
             <label htmlFor="description"> 
-                Description:
                 <TextInput
                     type="text" 
                     name="description"
                     id="recipe-description"
                     value={formState.description}
                     onChange={changeHandler}
+                    placeholder="Description"
                 />
                  {errorState.description.length > 0 ? (<Error className="error">{errorState.description}</Error>) : null}
             </label>
             </Fields>
             <Fields>
             <label htmlFor="source">
-                Source:
                 <TextInput 
                     type="text"
                     name="source"
                     id="recipe-source"
                     value={formState.source}
                     onChange={changeHandler}
+                    placeholder="Source"
                 />
                 {errorState.source.length > 0 ? (<Error className="error">{errorState.source}</Error>) : null}
             </label>
             </Fields>
             <Fields>
             <label htmlFor="ingredients">
-                Ingredients:
                 <TextArea 
                     name="ingredients"
                     id="recipe-ingredients"
                     value={formState.ingredients}
                     onChange={changeHandler}
+                    placeholder="What ingredients will you need?"
                 />
                  {errorState.ingredients.length > 0 ? (<Error className="error">{errorState.ingredients}</Error>) : null}
             </label>
             </Fields>
             <Fields>
             <label htmlFor="instructions">
-                Instructions:
                 <TextArea
                     name="instructions"
                     id="recipe-instructions"
                     value={formState.instructions}
                     onChange={changeHandler}
+                    placeholder="Instructions"
                 />
                 {errorState.instructions.length > 0 ? (<Error className="error">{errorState.instructions}</Error>) : null}
             </label>
             </Fields>
             <Fields>
             <label htmlFor="category">
-                Category:
                 <TextInput
                     type="text"
                     name="category"
                     id="recipe-category"
                     value={formState.category}
                     onChange={changeHandler}
+                    placeholder="Category"
                 />
                 {errorState.category.length > 0 ? (<Error className="error">{errorState.category}</Error>) : null}
             </label>
