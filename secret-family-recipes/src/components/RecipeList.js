@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 
+import AddRecipe from "./AddRecipe";
 import axiosWithAuth from "./axiosWithAuth";
 import { RecipeContext } from "../contexts/RecipeContext";
 
@@ -49,7 +50,8 @@ const RecipeList = () => {
   };
 
   return (
-    <div className="recipe-card">
+    <div className="recipes-wrap">
+      <AddRecipe />
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe.id} onClick={() => editRecipe(recipe)}>
@@ -83,6 +85,58 @@ const RecipeList = () => {
               value={recipeToEdit.title}
             />
           </label>
+          <label>
+            recipe source:
+            <input
+              onChange={(e) =>
+                setRecipeToEdit({
+                  ...recipeToEdit,
+                  source: e.target.value,
+                })
+              }
+              value={recipeToEdit.source}
+            />
+          </label>
+          <label>
+            recipe ingredients:
+            <input
+              onChange={(e) =>
+                setRecipeToEdit({
+                  ...recipeToEdit,
+                  ingredients: e.target.value,
+                })
+              }
+              value={recipeToEdit.ingredients}
+            />
+          </label>
+          <label>
+            recipe instructions:
+            <input
+              onChange={(e) =>
+                setRecipeToEdit({
+                  ...recipeToEdit,
+                  instructions: e.target.value,
+                })
+              }
+              value={recipeToEdit.instructions}
+            />
+          </label>
+          <label>
+            recipe category:
+            <input
+              onChange={(e) =>
+                setRecipeToEdit({
+                  ...recipeToEdit,
+                  category: e.target.value,
+                })
+              }
+              value={recipeToEdit.category}
+            />
+          </label>
+          <div className="button-row">
+            <button type="submit">save</button>
+            <button onClick={() => setEditing(false)}>cancel</button>
+          </div>
         </form>
       )}
     </div>

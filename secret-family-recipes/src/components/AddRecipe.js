@@ -8,6 +8,7 @@ const AddRecipe = () => {
 
   const [newRecipe, setNewRecipe] = useState({
     title: "",
+    id: Date.now(),
     source: "",
     ingredients: "",
     instructions: "",
