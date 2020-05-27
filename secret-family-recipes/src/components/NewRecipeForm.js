@@ -119,7 +119,7 @@ export default function NewRecipe() {
         console.log("Created New Recipe!")
 
         axios
-            .post("https://reqres.in/api/users", formState)
+            .post("https://secret-recipe-cookbook.herokuapp.com/recipes", formState)
             .then((response) => {
                 setFormState(initialState);
                 console.log(response);

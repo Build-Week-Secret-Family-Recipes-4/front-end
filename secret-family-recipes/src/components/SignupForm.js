@@ -110,9 +110,8 @@ export default function SignupForm() {
         e.preventDefault();
         console.log("Sign Up Form Submitted!");
 
-        // axios call to dummy API so I could see if my validation worked
         axios
-             .post("https://reqres.in/api/users", formState)
+             .post("https://secret-recipe-cookbook.herokuapp.com/auth/register", formState)
              .then((response) => {
                 setFormState(initialState);
                 console.log(response);
