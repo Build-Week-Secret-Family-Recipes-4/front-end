@@ -50,17 +50,41 @@ const RecipeList = () => {
 
   return (
     <div className="recipe-card">
-      {recipes.map((recipe) => {
-        return (
-          <section className="recipe" key={recipe.id}>
-            <h2>{recipe.title}</h2>
-            <p>{recipe.source}</p>
-            <p>{recipe.ingredients}</p>
-            <p>{recipe.instructions}</p>
-            <p>{recipe.category}</p>
-          </section>
-        );
-      })}
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe.id} onClick={() => editRecipe(recipe)}>
+            <span>
+              <span
+                className="delete"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteRecipe(recipe);
+                }}
+              >
+                x
+              </span>{" "}
+              {recipe.id}
+            </span>
+          </li>
+        ))}
+      </ul>
+      {editing && (
+        <form onSubmit={saveEdit}>
+          <legend>edit recipe</legend>
+          <label>
+            recipe title:
+            <input
+              onChange={(e) =>
+                setRecipeToEdit({
+                  ...recipeToEdit,
+                  title: e.target.value,
+                })
+              }
+              value={recipeToEdit.title}
+            />
+          </label>
+        </form>
+      )}
     </div>
   );
 };
