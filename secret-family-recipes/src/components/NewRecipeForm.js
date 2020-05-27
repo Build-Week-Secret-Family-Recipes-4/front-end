@@ -8,6 +8,7 @@ const Form = styled.form`
     flex-direction: column;
     align-items: center;
     margin-bottom: 100px;
+
 `
 const Button = styled.button`
     border-radius: 5px;
@@ -16,6 +17,10 @@ const Button = styled.button`
     margin-top: 20px;
     padding:10px;
     box-shadow: 7px 7px 10px #888888;
+
+    @media (max-width: 375px) {
+        width: 325px;
+    }
 `
 const Error = styled.p`
     color: red;
@@ -30,6 +35,8 @@ const Recipe = styled.div`
 const Fields = styled.div`
     padding: 15px;
     font-size: 1rem;
+
+
 `
 
 const TextInput = styled.input`
@@ -39,6 +46,10 @@ const TextInput = styled.input`
     padding: 10px;
     width: 400px;
     border: 1px solid black;
+
+    @media (max-width: 375px) {
+        width: 300px;
+    }
 `
 const TextArea = styled.textarea`
     margin-left: 5px;
@@ -48,6 +59,10 @@ const TextArea = styled.textarea`
     width: 400px;
     height: 150px;
     resize: none;
+
+    @media (max-width: 375px) {
+        width: 300px;
+    }
 `
 
 const Dropdown = styled.select`
@@ -57,6 +72,10 @@ const Dropdown = styled.select`
     height: 45px;
     background-color: transparent;
     border: 1px solid black;
+
+    @media (max-width: 375px) {
+        width: 325px;
+    }
 `
 const Header = styled.h3`
     font-size: 1.5rem;
