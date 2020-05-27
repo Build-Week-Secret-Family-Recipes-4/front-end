@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 
 import { RecipeContext } from "../contexts/RecipeContext";
 import axiosWithAuth from "./axiosWithAuth";
