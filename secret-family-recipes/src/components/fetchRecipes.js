@@ -1,8 +1,8 @@
-import axiosWithAuth from "./axiosWithAuth";
+import axios from "axios";
 
 export const fetchRecipes = () => {
-  return axiosWithAuth()
-    .get(`/recipes`)
+  return axios
+    .get(`https://secret-recipe-cookbook.herokuapp.com`)
     .then((res) => {
       return res;
     });

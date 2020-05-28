@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <RecipeContext.Provider value={{ recipes, setRecipes }}>
         <Route exact path="/" component={Access} />
-        <PrivateRoute path="recipelist" component={RecipeList} />
+        <PrivateRoute path="/recipelist" component={RecipeList} />
       </RecipeContext.Provider>
     </div>
   );
