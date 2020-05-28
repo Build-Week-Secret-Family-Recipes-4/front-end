@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import AddRecipe from "./AddRecipe";
+import NewrecipeForm from "./NewRecipeForm";
 import axiosWithAuth from "./axiosWithAuth";
 import { RecipeContext } from "../contexts/RecipeContext";
 
@@ -51,7 +51,7 @@ const RecipeList = () => {
 
   return (
     <div className="recipes-wrap">
-      <AddRecipe />
+      <NewrecipeForm />
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe.id} onClick={() => editRecipe(recipe)}>

@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+=======
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Montserrat";
+>>>>>>> b7ece0ac426895699c2971e133f75f19ea684419
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

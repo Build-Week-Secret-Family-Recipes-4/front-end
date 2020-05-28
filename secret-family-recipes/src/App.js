@@ -5,7 +5,7 @@ import "./App.css";
 import PrivateRoute from "./components/PrivateRoute";
 import { RecipeContext } from "./contexts/RecipeContext";
 import RecipeList from "./components/RecipeList";
-import Login from "./components/Login";
+import Access from "./components/Access";
 import { fetchRecipes } from "./components/fetchRecipes";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <RecipeContext.Provider value={{ recipes, setRecipes }}>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Access} />
         <PrivateRoute path="recipelist" component={RecipeList} />
       </RecipeContext.Provider>
     </div>
