@@ -47,7 +47,7 @@ export default function SearchForm() {
                 <Search 
                     type="text"
                     name="search"
-                    placeholder="Search categories..."
+                    placeholder="Search..."
                     value={searchTerm}
                     onChange={changeHandler}
                 />
