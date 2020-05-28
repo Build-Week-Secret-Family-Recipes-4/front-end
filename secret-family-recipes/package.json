@@ -6,11 +6,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-<<<<<<< HEAD
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-=======
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,16 +13,11 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "styled-components": "^5.1.0"
->>>>>>> b7ece0ac426895699c2971e133f75f19ea684419
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-<<<<<<< HEAD
     "test": "jest --watchAll",
-=======
-    "test": "react-scripts test",
->>>>>>> b7ece0ac426895699c2971e133f75f19ea684419
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import NewrecipeForm from "./NewRecipeForm";
 import axiosWithAuth from "./axiosWithAuth";
 import { RecipeContext } from "../contexts/RecipeContext";
+import SearchForm from "./SearchForm";
 
 const initialRecipe = {
   title: "",
@@ -51,6 +52,7 @@ const RecipeList = () => {
 
   return (
     <div className="recipes-wrap">
+      <SearchForm />
       <NewrecipeForm />
       <ul>
         {recipes.map((recipe) => (
