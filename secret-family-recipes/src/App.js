@@ -1,32 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
-import "./App.css";
-
-import PrivateRoute from "./components/PrivateRoute";
-import { RecipeContext } from "./contexts/RecipeContext";
-import RecipeList from "./components/RecipeList";
-import Access from "./components/Access";
-import { fetchRecipes } from "./components/fetchRecipes";
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    fetchRecipes()
-      .then((res) => {
-        setRecipes(res.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
-
   return (
     <div className="App">
-      <RecipeContext.Provider value={{ recipes, setRecipes }}>
-        <Route exact path="/" component={Access} />
-        <PrivateRoute path="/recipelist" component={RecipeList} />
-      </RecipeContext.Provider>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
