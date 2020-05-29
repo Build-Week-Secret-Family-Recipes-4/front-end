@@ -5,5 +5,7 @@ import App from "../App";
 import RecipeList from "../components/RecipeList";
 
 test("App renders without crashing", () => {
-  render(<App />);
+  const { getByText, getAllByText, queryAllByText } = render(<App />);
+
+  fireEvent.mouseDown(getByText(/ingredients/i));
 });
