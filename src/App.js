@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import PrivateRoute from "./components/PrivateRoute";
@@ -24,8 +24,10 @@ function App() {
   return (
     <div className="App">
       <RecipeContext.Provider value={{ recipes, setRecipes }}>
-        <Route exact path="/" component={Access} />
-        <PrivateRoute path="/recipelist" component={RecipeList} />
+        <Switch>
+          <Route exact path="/" component={Access} />
+          <PrivateRoute path="/recipelist" component={RecipeList} />
+        </Switch>
       </RecipeContext.Provider>
     </div>
   );
