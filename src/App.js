@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -9,7 +9,7 @@ import Access from "./components/Access";
 import { fetchRecipes } from "./components/fetchRecipes";
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useContext(RecipeContext);
 
   useEffect(() => {
     fetchRecipes()
