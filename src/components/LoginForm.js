@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
 import styled from "styled-components";
@@ -48,7 +49,9 @@ const formSchema = yup.object().shape({
   password: yup.string().required("Please enter your password"),
 });
 
-const LoginForm = (props) => {
+const LoginForm = () => {
+  const history = useHistory();
+
   const initialState = {
     username: "",
     password: "",
@@ -104,12 +107,12 @@ const LoginForm = (props) => {
         formState
       )
       .then((response) => {
-        localStorage.setItem("token", response.data.payload);
-        props.history.push("/recipelist");
+        localStorage.setItem("token", response.data.token);
+        history.push("/recipelist");
         setFormState(initialState);
-        console.log("login: ", response);
+        console.log("login: ", response.data);
       })
-      .catch((err) => console.log(err.response));
+      .catch((err) => console.log(err.message));
 
     setIsLoading(false);
   };

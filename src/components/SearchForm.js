@@ -29,8 +29,8 @@ export default function SearchForm() {
     axiosWithAuth()
       .get("/recipes")
       .then((response) => {
-        const recipe = response.data.results.filter((recipe) =>
-          recipe.toLowerCase().includes(searchTerm.toLowerCase())
+        const recipe = response.data.filter((recipe) =>
+          recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setData(recipe);
       });
