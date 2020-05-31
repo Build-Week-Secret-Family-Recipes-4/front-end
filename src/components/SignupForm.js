@@ -115,7 +115,7 @@ export default function SignupForm() {
         formState
       )
       .then((response) => {
-        localStorage.setItem("token", response.data.payload);
+        localStorage.setItem("token", response.data.token);
         history.push("/recipelist");
         setFormState(initialState);
         console.log(response);

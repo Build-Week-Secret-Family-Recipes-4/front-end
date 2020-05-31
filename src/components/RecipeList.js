@@ -30,7 +30,7 @@ const RecipeList = () => {
     axiosWithAuth()
       .put(`/recipes/${recipeToEdit.id}`, recipeToEdit)
       .then((res) => {
-        console.log("put: ", res);
+        console.log("put: ", res.data);
       })
       .catch((err) => {
         console.log("put err: ", err.message);

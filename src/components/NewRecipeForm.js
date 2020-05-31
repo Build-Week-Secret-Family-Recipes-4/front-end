@@ -150,7 +150,7 @@ export default function NewRecipe() {
       .post("/recipes", { ...newRecipe })
       .then((res) => {
         // setNewRecipe(res.data)
-        console.log("post: ", res);
+        console.log("post: ", res.data);
       })
       .catch((err) => {
         console.log("post: ", err.message);
