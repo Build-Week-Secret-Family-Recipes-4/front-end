@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components";
 
 import NewrecipeForm from "./NewRecipeForm";
 import axiosWithAuth from "./axiosWithAuth";
@@ -55,7 +54,6 @@ const RecipeList = () => {
   console.log("recipes context: ", recipes);
   return (
     <div className="recipes-wrap">
-      {/* {searchTerm("") ? <SearchForm /> : <div></div>} */}
       <SearchForm />
       {recipes.map((recipe) => {
         return (
