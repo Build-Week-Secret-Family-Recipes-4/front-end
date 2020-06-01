@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import axiosWithAuth from "./axiosWithAuth";
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
-  border: 1px solid black,
-  margin: 3%
-`;
-
 const Search = styled.input`
   margin-left: 5px;
   font-size: 1rem;
@@ -58,13 +53,13 @@ export default function SearchForm() {
 
       {data.map((recipe) => {
         return (
-          <StyledDiv className="info">
+          <div className="info">
             <h3>{recipe.title}</h3>
             <h6>By: {recipe.source}</h6>
             <h6>Ingredients: {recipe.ingredients}</h6>
             <h6>Instructions: {recipe.instructions}</h6>
             <h6>{recipe.category}</h6>
-          </StyledDiv>
+          </div>
         );
       })}
     </div>
