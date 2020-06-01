@@ -118,7 +118,7 @@ export default function SignupForm() {
         localStorage.setItem("token", response.data.token);
         history.push("/recipelist");
         setFormState(initialState);
-        console.log(response);
+        console.log(response.data);
       })
       .catch((err) => console.log(err.response));
   };
