@@ -88,22 +88,35 @@ const formSchema = yup.object().shape({
   category: yup.string().required("Please choose a category"),
 });
 
+const initialState = {
+  title: "",
+  id: Date.now(),
+  description: "",
+  source: "",
+  ingredients: "",
+  instructions: "",
+  category: "",
+};
+
 export default function NewRecipe() {
   const { recipes, setRecipes } = useContext(RecipeContext);
 
-  const [newRecipe, setNewRecipe] = useState({
-    title: "",
-    id: Date.now(),
-    description: "",
-    source: "",
-    ingredients: "",
-    instructions: "",
-    category: "",
-  });
+  const [newRecipe, setNewRecipe] = useState(initialState);
 
   const [errorState, setErrorState] = useState(newRecipe);
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/recipes")
+      .then((res) => {
+        setRecipes(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   useEffect(() => {
     formSchema.isValid(newRecipe).then((valid) => {
@@ -138,18 +151,9 @@ export default function NewRecipe() {
     console.log("Created New Recipe!");
 
     axiosWithAuth()
-      .get("/recipes")
-      .then((res) => {
-        setRecipes(res.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-
-    axiosWithAuth()
       .post("/recipes", { ...newRecipe })
       .then((res) => {
-        // setNewRecipe(res.data)
+        setNewRecipe(initialState);
         console.log("post: ", res.data);
       })
       .catch((err) => {

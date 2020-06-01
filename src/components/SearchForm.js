@@ -24,6 +24,7 @@ const Button = styled.button`
 export default function SearchForm() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     axiosWithAuth()
@@ -38,6 +39,11 @@ export default function SearchForm() {
 
   const changeHandler = (event) => {
     setSearchTerm(event.target.value);
+    if (searchTerm !== "") {
+      setIsSearching(true);
+    } else {
+      setIsSearching(false);
+    }
   };
 
   return (
@@ -53,12 +59,18 @@ export default function SearchForm() {
 
       {data.map((recipe) => {
         return (
-          <div className="info">
-            <h3>{recipe.title}</h3>
-            <h6>By: {recipe.source}</h6>
-            <h6>Ingredients: {recipe.ingredients}</h6>
-            <h6>Instructions: {recipe.instructions}</h6>
-            <h6>{recipe.category}</h6>
+          <div>
+            {isSearching ? (
+              <div className="search-info">
+                <h3>{recipe.title}</h3>
+                <h6>By: {recipe.source}</h6>
+                <h6>Ingredients: {recipe.ingredients}</h6>
+                <h6>Instructions: {recipe.instructions}</h6>
+                <h6>{recipe.category}</h6>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         );
       })}

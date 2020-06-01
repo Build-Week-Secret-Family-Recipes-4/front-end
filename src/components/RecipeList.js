@@ -19,6 +19,7 @@ const RecipeList = () => {
   const { recipes, setRecipes } = useContext(RecipeContext);
   const [recipeToEdit, setRecipeToEdit] = useState(initialRecipe);
   const [editing, setEditing] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const editRecipe = (recipe) => {
     setEditing(true);
@@ -51,13 +52,19 @@ const RecipeList = () => {
       });
   };
 
+  console.log("recipes context: ", recipes);
   return (
     <div className="recipes-wrap">
+      {/* {searchTerm("") ? <SearchForm /> : <div></div>} */}
       <SearchForm />
-      <NewrecipeForm />
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id} onClick={() => editRecipe(recipe)}>
+      {recipes.map((recipe) => {
+        return (
+          <div className="info" onClick={() => editRecipe(recipe)}>
+            <h3>{recipe.title}</h3>
+            <h6>By: {recipe.source}</h6>
+            <h6>Ingredients: {recipe.ingredients}</h6>
+            <h6>Instructions: {recipe.instructions}</h6>
+            <h6>{recipe.category}</h6>
             <span>
               <span
                 className="delete"
@@ -68,13 +75,13 @@ const RecipeList = () => {
               >
                 x
               </span>{" "}
-              {recipe.id}
+              {recipe.recipe}
             </span>
-          </li>
-        ))}
-      </ul>
+          </div>
+        );
+      })}
       {editing && (
-        <form onSubmit={saveEdit}>
+        <form className="edit-form" onSubmit={saveEdit}>
           <legend>edit recipe</legend>
           <label>
             recipe title:
@@ -142,6 +149,7 @@ const RecipeList = () => {
           </div>
         </form>
       )}
+      <NewrecipeForm />
     </div>
   );
 };
