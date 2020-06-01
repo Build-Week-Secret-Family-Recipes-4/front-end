@@ -42,7 +42,7 @@ const RecipeList = () => {
     axiosWithAuth()
       .delete(`/recipes/${recipe.id}`)
       .then((res) => {
-        console.log("delete res: ", res);
+        console.log("delete res: ", res.data);
         setRecipes(recipeToEdit);
         setEditing(false);
       })
@@ -55,6 +55,7 @@ const RecipeList = () => {
   return (
     <div className="recipes-wrap">
       <SearchForm />
+      <header>My Family's Recipes</header>
       {recipes.map((recipe) => {
         return (
           <div className="info" onClick={() => editRecipe(recipe)}>
