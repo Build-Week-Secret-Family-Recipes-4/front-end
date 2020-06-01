@@ -6,7 +6,7 @@ import axiosWithAuth from "./axiosWithAuth";
 import { RecipeContext } from "../contexts/RecipeContext";
 import SearchForm from "./SearchForm";
 
-const StyledLi = styled.li`
+const StyledDiv = styled.div`
   border: 1px solid black,
   margin: 3%
 `;
@@ -61,22 +61,24 @@ const RecipeList = () => {
       <SearchForm />
       <NewrecipeForm />
       <ul>
-        {recipes.map((recipe) => (
-          <StyledLi key={recipe.id} onClick={() => editRecipe(recipe)}>
-            <span>
-              <span
-                className="delete"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  deleteRecipe(recipe);
-                }}
-              >
-                x
-              </span>{" "}
-              {recipe.id}
-            </span>
-          </StyledLi>
-        ))}
+        <StyledDiv className="recipe-card">
+          {recipes.map((recipe) => (
+            <li key={recipe.id} onClick={() => editRecipe(recipe)}>
+              <span>
+                <span
+                  className="delete"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteRecipe(recipe);
+                  }}
+                >
+                  x
+                </span>{" "}
+                {recipe.id}
+              </span>
+            </li>
+          ))}
+        </StyledDiv>
       </ul>
       {editing && (
         <form onSubmit={saveEdit}>
