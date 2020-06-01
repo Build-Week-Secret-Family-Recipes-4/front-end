@@ -54,7 +54,11 @@ export default function SearchForm() {
       {data.map((recipe) => {
         return (
           <div className="info">
-            <h3>{recipe.title}</h3>
+            <h3>Title: {recipe.title}</h3>
+            <h6>By: {recipe.source}</h6>
+            <h6>Ingredients: {recipe.ingredients}</h6>
+            <h6>Instructions: {recipe.instructions}</h6>
+            <h6>Category: {recipe.category}</h6>
           </div>
         );
       })}

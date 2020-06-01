@@ -1,9 +1,15 @@
 import React, { useContext, useState } from "react";
+import styled from "styled-components";
 
 import NewrecipeForm from "./NewRecipeForm";
 import axiosWithAuth from "./axiosWithAuth";
 import { RecipeContext } from "../contexts/RecipeContext";
 import SearchForm from "./SearchForm";
+
+const StyledLi = styled.li`
+  border: 1px solid black,
+  margin: 3%
+`;
 
 const initialRecipe = {
   title: "",
@@ -56,7 +62,7 @@ const RecipeList = () => {
       <NewrecipeForm />
       <ul>
         {recipes.map((recipe) => (
-          <li key={recipe.id} onClick={() => editRecipe(recipe)}>
+          <StyledLi key={recipe.id} onClick={() => editRecipe(recipe)}>
             <span>
               <span
                 className="delete"
@@ -69,7 +75,7 @@ const RecipeList = () => {
               </span>{" "}
               {recipe.id}
             </span>
-          </li>
+          </StyledLi>
         ))}
       </ul>
       {editing && (
