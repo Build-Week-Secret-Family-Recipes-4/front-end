@@ -70,6 +70,7 @@ export default function SignupForm() {
   // States
   const [formState, setFormState] = useState(initialState);
   const [errorState, setErrorState] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(false);
 
   // only allow form submit upon completion of all fields
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -107,6 +108,7 @@ export default function SignupForm() {
   // Submit Handler
   const formSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     console.log("Sign Up Form Submitted!");
 
     axios
@@ -120,7 +122,9 @@ export default function SignupForm() {
         setFormState(initialState);
         console.log(response.data);
       })
-      .catch((err) => console.log(err.response));
+      .catch((err) => console.log(err.message));
+
+    setIsLoading(false);
   };
 
   return (
